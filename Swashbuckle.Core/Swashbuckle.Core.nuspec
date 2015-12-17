@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>Swashbuckle.Core</id>
+    <id>Swashbuckle2.Core</id>
     <version>$version$</version>
     <title>Swashbuckle.Core - Swagger for WebApi</title>
     <authors>Richard Morris</authors>
