@@ -49,7 +49,7 @@ namespace Swashbuckle.Swagger
 				.Where(apiDesc => !(_options.IgnoreObsoleteActions && apiDesc.IsObsolete()))
 				.OrderBy(_options.GroupingKeySelector, _options.GroupingKeyComparer)
 				.GroupBy(dd => (dd.ActionDescriptor as ReflectedHttpActionDescriptor).MethodInfo)
-				.Select(g => g.OrderBy(d => d.RelativePath.Length).First())
+				.Select(g => g.OrderByDescending(d => d.RelativePath.Length).First())
 				.GroupBy(apiDesc => apiDesc.RelativePathSansQueryString())
 				.ToDictionary(group => "/" + group.Key, group => CreatePathItem(group, schemaRegistry));
 
