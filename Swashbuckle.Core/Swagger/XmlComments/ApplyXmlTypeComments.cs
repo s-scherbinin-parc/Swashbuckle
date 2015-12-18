@@ -36,7 +36,9 @@ namespace Swashbuckle.Swagger.XmlComments
 
             foreach (var entry in model.properties)
             {
-                var jsonProperty = context.JsonObjectContract.Properties[entry.Key];
+				var jsonProperty = context.JsonObjectContract != null 
+					? context.JsonObjectContract.Properties[entry.Key]
+					: context.JsonDynamicContract.Properties[entry.Key];
                 if (jsonProperty == null) continue;
 
                 ApplyPropertyComments(entry.Value, jsonProperty.PropertyInfo());
